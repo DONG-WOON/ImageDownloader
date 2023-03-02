@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7286617129B04D72001170A7 /* ImageLoadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286617029B04D72001170A7 /* ImageLoadCell.swift */; };
+		7286617329B04D85001170A7 /* ImageDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286617229B04D85001170A7 /* ImageDownloadViewController.swift */; };
+		7286617529B04D8E001170A7 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286617429B04D8E001170A7 /* ImageDownloader.swift */; };
+		7286617829B04DE7001170A7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7286617729B04DE7001170A7 /* SnapKit */; };
+		7286617A29B051CD001170A7 /* AllImagesLoadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286617929B051CD001170A7 /* AllImagesLoadCell.swift */; };
 		72B44A7529A5BAE10088F678 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B44A7429A5BAE10088F678 /* AppDelegate.swift */; };
 		72B44A7729A5BAE10088F678 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B44A7629A5BAE10088F678 /* SceneDelegate.swift */; };
 		72B44A7929A5BAE10088F678 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B44A7829A5BAE10088F678 /* ViewController.swift */; };
@@ -36,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7286617029B04D72001170A7 /* ImageLoadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoadCell.swift; sourceTree = "<group>"; };
+		7286617229B04D85001170A7 /* ImageDownloadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadViewController.swift; sourceTree = "<group>"; };
+		7286617429B04D8E001170A7 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageDownloader.swift; path = ../../../../ImageDownloader.swift; sourceTree = "<group>"; };
+		7286617929B051CD001170A7 /* AllImagesLoadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllImagesLoadCell.swift; sourceTree = "<group>"; };
 		72B44A7129A5BAE10088F678 /* ImageDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72B44A7429A5BAE10088F678 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72B44A7629A5BAE10088F678 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7286617829B04DE7001170A7 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +111,10 @@
 			children = (
 				72B44A7429A5BAE10088F678 /* AppDelegate.swift */,
 				72B44A7629A5BAE10088F678 /* SceneDelegate.swift */,
+				7286617229B04D85001170A7 /* ImageDownloadViewController.swift */,
+				7286617029B04D72001170A7 /* ImageLoadCell.swift */,
+				7286617929B051CD001170A7 /* AllImagesLoadCell.swift */,
+				7286617429B04D8E001170A7 /* ImageDownloader.swift */,
 				72B44A7829A5BAE10088F678 /* ViewController.swift */,
 				72B44A7A29A5BAE10088F678 /* Main.storyboard */,
 				72B44A7D29A5BAE30088F678 /* Assets.xcassets */,
@@ -143,6 +157,9 @@
 			dependencies = (
 			);
 			name = ImageDownloader;
+			packageProductDependencies = (
+				7286617729B04DE7001170A7 /* SnapKit */,
+			);
 			productName = ImageDownloader;
 			productReference = 72B44A7129A5BAE10088F678 /* ImageDownloader.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +232,9 @@
 				Base,
 			);
 			mainGroup = 72B44A6829A5BAE10088F678;
+			packageReferences = (
+				7286617629B04DE7001170A7 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 72B44A7229A5BAE10088F678 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,7 +279,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				72B44A7929A5BAE10088F678 /* ViewController.swift in Sources */,
+				7286617329B04D85001170A7 /* ImageDownloadViewController.swift in Sources */,
+				7286617129B04D72001170A7 /* ImageLoadCell.swift in Sources */,
 				72B44A7529A5BAE10088F678 /* AppDelegate.swift in Sources */,
+				7286617A29B051CD001170A7 /* AllImagesLoadCell.swift in Sources */,
+				7286617529B04D8E001170A7 /* ImageDownloader.swift in Sources */,
 				72B44A7729A5BAE10088F678 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +626,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7286617629B04DE7001170A7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7286617729B04DE7001170A7 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7286617629B04DE7001170A7 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 72B44A6929A5BAE10088F678 /* Project object */;
 }

@@ -32,6 +32,8 @@ class ImageLoadCell: UITableViewCell {
         loadButton.addTarget(self, action: #selector(loadButtonDidTapped), for: .touchUpInside)
         self.selectionStyle = .none
         
+        NotificationCenter.default.addObserver(self, selector: #selector(loadButtonDidTapped), name: .allImagesLoad, object: nil)
+        
         configureViews()
         setConstraints()
     }
@@ -40,10 +42,18 @@ class ImageLoadCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: - Actions
     
     @objc private func loadButtonDidTapped() {
         loadButtonAction()
+    }
+    
+    func configure(image: UIImage) {
+        loadedImageView.image = image
     }
     
 

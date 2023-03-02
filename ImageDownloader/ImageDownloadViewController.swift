@@ -12,6 +12,16 @@ class ImageDownloadViewController: UIViewController {
     
     // MARK: - Properties
     
+    private let imageDownloader = ImageDownloader(session: URLSession.shared)
+    
+    private let urls: [String] = ["https://picsum.photos/150/150",
+                                  "https://picsum.photos/150/150",
+                                  "https://picsum.photos/150/150",
+                                  "https://picsum.photos/150/150",
+                                  "https://picsum.photos/150/150",
+                                  "https://picsum.photos/150/150",
+                                  "https://picsum.photos/150/150"]
+    
     private let imageDownloadTableView: UITableView = {
         let tableView = UITableView()
         
@@ -23,6 +33,8 @@ class ImageDownloadViewController: UIViewController {
         return tableView
     }()
     
+    // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +45,19 @@ class ImageDownloadViewController: UIViewController {
         configureViews()
         setConstraints()
         // Do any additional setup after loading the view.
+    }
+    
+    // MARK: - Actions
+    
+    func downloadImage(url: String, completion: @escaping (UIImage) -> Void) {
+        imageDownloader.downloadImage(stringURL: url) { result in
+            switch result {
+            case .success(let image):
+                completion(image)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     // MARK: - Configure
@@ -62,7 +87,7 @@ extension ImageDownloadViewController: UITableViewDataSource {
         
         switch section {
         case 0:
-            return 6
+            return urls.count
         case 1:
             return 1
         default:
@@ -76,14 +101,21 @@ extension ImageDownloadViewController: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageLoadCell.reuseIdentifier, for: indexPath) as? ImageLoadCell else { return ImageLoadCell() }
             
-            cell.loadButtonAction = {
-                //다운로드 버튼 누르면 이미지 다운로드해서 imageView에 추가
+            cell.loadButtonAction = { [self] in
+                downloadImage(url: urls[indexPath.row]) { image in
+                    DispatchQueue.main.async {
+                        cell.configure(image: image)
+                    }
+                }
             }
             
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AllImagesLoadCell.reuseIdentifier, for: indexPath) as? AllImagesLoadCell else { return AllImagesLoadCell() }
             
+            cell.allImagesLoadButtonAction = {
+                NotificationCenter.default.post(name: .allImagesLoad, object: nil)
+            }
             
             return cell
             

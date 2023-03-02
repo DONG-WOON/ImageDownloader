@@ -13,16 +13,21 @@ class AllImagesLoadCell: UITableViewCell {
     
     static let reuseIdentifier = "AllImageLoadCell"
     
-    private let allImagesloadButton: UIButton = {
+    var allImagesLoadButtonAction: () -> Void = {}
+    
+    private let allImagesLoadButton: UIButton = {
         var configuration = UIButton.Configuration.filled()
         configuration.title = "Load All Images"
         return UIButton(configuration: configuration)
     }()
     
+    
     // MARK: - Initialization
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        allImagesLoadButton.addTarget(self, action: #selector(allImageLoadButtonDidTapped), for: .touchUpInside)
         
         configureViews()
         setConstraints()
@@ -34,16 +39,20 @@ class AllImagesLoadCell: UITableViewCell {
     
     // MARK: - Actions
     
+    @objc private func allImageLoadButtonDidTapped() {
+        allImagesLoadButtonAction()
+    }
+    
     // MARK: - Configure
     
     private func configureViews() {
-        contentView.addSubview(allImagesloadButton)
+        contentView.addSubview(allImagesLoadButton)
     }
     
     // MARK: - Setting Constraints
     
     private func setConstraints() {
-        allImagesloadButton.snp.makeConstraints { make in
+        allImagesLoadButton.snp.makeConstraints { make in
             make.top.bottom.equalTo(contentView.safeAreaLayoutGuide).inset(10)
             make.leading.trailing.equalTo(contentView.safeAreaLayoutGuide).inset(30)
         }

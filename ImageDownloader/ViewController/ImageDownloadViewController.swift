@@ -13,14 +13,7 @@ class ImageDownloadViewController: UIViewController {
     // MARK: - Properties
     
     private let imageDownloader = ImageDownloader(session: URLSession.shared)
-    
-    private let urls: [String] = ["https://picsum.photos/150/150",
-                                  "https://picsum.photos/150/150",
-                                  "https://picsum.photos/150/150",
-                                  "https://picsum.photos/150/150",
-                                  "https://picsum.photos/150/150",
-                                  "https://picsum.photos/150/150",
-                                  "https://picsum.photos/150/150"]
+    private let urls: [String] = DummyURL.data
     
     private let imageDownloadTableView: UITableView = {
         let tableView = UITableView()

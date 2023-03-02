@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageDownloader {
+struct ImageDownloader {
     
     private let session: URLSession
     
